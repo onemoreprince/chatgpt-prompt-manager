@@ -20,7 +20,7 @@ body {
   padding: 10px 10px 15px 10px;
   cursor: pointer;
   border: 1px solid #cccccc7f;
-  border-radius: 3px!important;
+  border-radius: 3px !important;
 }
 
 div.prompt h2 {
@@ -38,7 +38,7 @@ div.prompt p {
   border: none;
   background-color: #24252e52;
   padding: 14px;
-  margin-top:10px;
+  margin-top: 10px;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
@@ -64,8 +64,8 @@ div.prompt p {
   background-color: #343541;
   flex-direction: column;
   border-radius: 4px;
-  min-width:60vw;
-  color:#eee;
+  min-width: 60vw;
+  color: #eee;
 }
 
 
@@ -73,24 +73,27 @@ div.prompt p {
   display: block;
   width: 100%;
   padding: 0.5rem;
-  margin:10px 0 5px 0;
+  margin: 10px 0 5px 0;
   border-radius: 4px;
   border: 2px solid #ccc;
   color: #eee;
-  background:#343541;
+  background: #343541;
 }
 
 .prompt-form textarea {
   display: block;
   width: 100%;
   padding: 0.5rem;
-  margin:10px 0 5px 0;
+  margin: 10px 0 5px 0;
   border-radius: 4px;
   border: 2px solid #ccc;
   color: #eee;
-  background:#343541;
+  background: #343541;
 }
 
+textarea {
+  background: transparent !important;
+}
 
 
 .prompt-form button {
@@ -128,13 +131,13 @@ button [type="submit"] {
   margin: 10px 10px 10px 0;
   padding: 10px;
   border: 1px solid #cccccc82;
-  border-radius: 3px!important;
+  border-radius: 3px !important;
 }
 
 
 
 .new-prompt-button {
-  width: 32%; 
+  width: 32%;
   cursor: pointer;
   text-align: center;
 }
@@ -142,27 +145,30 @@ button [type="submit"] {
 .search-input {
   width: 33%;
   border: 1px solid #cccccc7f;
-  color:#777;
+  color: #777;
 }
 
 
 .prompt {
   position: relative;
-  padding-bottom:20px;
+  padding-bottom: 20px;
 }
+
 .edit-button {
   position: absolute;
   bottom: 8px;
   right: 8px;
-  font-size:12px;
+  font-size: 12px;
 }
 
-#delete-prompt{
+#delete-prompt {
   background: #842121;
 }
-#save-prompt{
+
+#save-prompt {
   background: #0a7015;
 }
-.form-title{
-  margin-bottom:15px;
+
+.form-title {
+  margin-bottom: 15px;
 }
