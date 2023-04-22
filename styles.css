@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.prompt-manager {
+  width: 100%;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.prompt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.prompt {
+  padding: 10px 10px 15px 10px;
+  cursor: pointer;
+  border: 1px solid #cccccc7f;
+  border-radius: 3px!important;
+}
+
+div.prompt h2 {
+  font-size: 18px;
+}
+
+div.prompt p {
+  font-size: 14px;
+}
+
+
+.load-more-button {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #24252e52;
+  padding: 14px;
+  margin-top:10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.715);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.prompt-form {
+  padding: 30px;
+  background-color: #343541;
+  flex-direction: column;
+  border-radius: 4px;
+  min-width:60vw;
+  color:#eee;
+}
+
+
+.prompt-form input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin:10px 0 5px 0;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  color: #eee;
+  background:#343541;
+}
+
+.prompt-form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin:10px 0 5px 0;
+  border-radius: 4px;
+  border: 2px solid #ccc;
+  color: #eee;
+  background:#343541;
+}
+
+
+
+.prompt-form button {
+  background-color: #24252e;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+button [type="submit"] {
+  display: block;
+}
+
+.modal small {
+  opacity: 0.8;
+  display: block;
+}
+
+.modal label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.import-prompts-button,
+.export-prompts-button,
+.new-prompt-button,
+.search-input {
+  margin: 10px 10px 10px 0;
+  padding: 10px;
+  border: 1px solid #cccccc82;
+  border-radius: 3px!important;
+}
+
+
+
+.new-prompt-button {
+  width: 32%; 
+  cursor: pointer;
+  text-align: center;
+}
+
+.search-input {
+  width: 33%;
+  border: 1px solid #cccccc7f;
+  color:#777;
+}
+
+
+.prompt {
+  position: relative;
+  padding-bottom:20px;
+}
+.edit-button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size:12px;
+}
+
+#delete-prompt{
+  background: #842121;
+}
+#save-prompt{
+  background: #0a7015;
+}
+.form-title{
+  margin-bottom:15px;
+}

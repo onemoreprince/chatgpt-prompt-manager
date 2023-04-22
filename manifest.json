@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Prompt Manager",
+  "version": "1.2",
+  "description": "Manage advance ChatGPT prompts with multiple variables, simple JSON export/import without any external dependency. Build using ChatGPT by Prince Kumar (@onemoreprince).",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*"
+      ],
+      "js": [
+        "importexport.js",
+        "modal.js",
+        "promptGrid.js",
+        "promptManager.js",
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}
