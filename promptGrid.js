@@ -45,33 +45,80 @@ function addPromptToGrid(promptItem) {
       <h2>${promptItem.title}</h2>
       <p>${promptItem.description}</p>
     `;
-
     promptElement.addEventListener("click", () => {
         const variableRegex = /\[([A-Z]+)\]/g;
         const variables = [...new Set(promptItem.text.match(variableRegex))];
         const inputLabels = variables.map((variable) => variable.slice(1, -1));
         const inputValues = {};
 
-        let allInputsCompleted = true;
+        let container = document.querySelector('div[data-container="inputFields"]');
+        if (!container) {
+            container = document.createElement("div");
+            container.setAttribute("data-container", "inputFields");
+            container.style.margin = "10px";
+        } else {
+            container.innerHTML = "";
+        }
+
+        const titleElement = document.createElement("h6");
+        titleElement.textContent = promptItem.title;
+        titleElement.style.fontWeight = "bold";
+        container.appendChild(titleElement);
+
         inputLabels.forEach((label) => {
-            const input = prompt(`Enter a value for ${label}:`);
-            if (input !== null) {
-                inputValues[label] = input;
-            } else {
-                allInputsCompleted = false;
-            }
+            const labelElement = document.createElement("label");
+            labelElement.textContent = `Enter ${label}`;
+            container.appendChild(labelElement);
+
+            const inputElement = document.createElement("textarea");
+            inputElement.setAttribute("data-input", label);
+            inputElement.style.width = "100%";
+            inputElement.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    submitInputs();
+                }
+            });
+            container.appendChild(inputElement);
         });
 
-        if (allInputsCompleted) {
-            const textarea = document.querySelector('textarea[data-id="root"]');
-            let newText = promptItem.text;
-            for (const label of inputLabels) {
-                const variable = `[${label}]`;
-                newText = newText.split(variable).join(inputValues[label]);
+        const rootTextarea = document.querySelector('textarea[data-id="root"]');
+        rootTextarea.parentNode.insertBefore(container, rootTextarea);
+
+
+
+        function submitInputs() {
+            let allInputsCompleted = true;
+            inputLabels.forEach((label) => {
+                const input = document.querySelector(`textarea[data-input="${label}"]`).value;
+                if (input !== "") {
+                    inputValues[label] = input;
+                } else {
+                    allInputsCompleted = false;
+                }
+            });
+
+            if (allInputsCompleted) {
+                let newText = promptItem.text;
+                for (const label of inputLabels) {
+                    const variable = `[${label}]`;
+                    newText = newText.split(variable).join(inputValues[label]);
+                }
+                rootTextarea.value = newText;
+                container.remove();
+
+                // Focus on rootTextarea and trigger the "Enter" key event
+                rootTextarea.focus();
+                const enterEvent = new KeyboardEvent("keydown", { key: "Enter" });
+                rootTextarea.dispatchEvent(enterEvent);
+            } else {
+                alert("Please fill all fields");
             }
-            textarea.value = newText;
         }
+
     });
+
+
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
     editButton.className = "edit-button";
@@ -84,5 +131,3 @@ function addPromptToGrid(promptItem) {
 
     promptGrid.appendChild(promptElement);
 }
-
-
