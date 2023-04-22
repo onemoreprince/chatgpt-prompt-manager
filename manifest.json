@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "ChatGPT Prompt Manager",
-  "version": "1.2",
-  "description": "Manage advance ChatGPT prompts with multiple variables, simple JSON export/import without any external dependency. Build using ChatGPT by Prince Kumar (@onemoreprince).",
+  "version": "1.3",
+  "description": "Manage advanced ChatGPT prompts with multiple variables and quick search, simple export/import without any external dependency.",
   "permissions": [
     "activeTab",
     "storage"
